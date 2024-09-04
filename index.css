@@ -1,0 +1,340 @@
+/* Start of CSS Reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 150%;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3 {
+  line-height: 100%;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* End of CSS Reset */
+
+/* Start of Font */
+@font-face {
+  font-family: "Young Serif";
+  src: url("/assets/fonts/young-serif/YoungSerif-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/outfit/static/Outfit-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/outfit/static/Outfit-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/outfit/static/Outfit-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* End of Font */
+
+:root {
+  /* Colors */
+  --background-card-color: hsl(0, 0%, 100%);
+  --background-color: hsl(30, 54%, 90%);
+  --shadow-color: hsl(30, 18%, 87%);
+  --normal-text-color: hsl(30, 10%, 34%);
+  --bold-text-color: hsl(24, 5%, 18%);
+  --primary-color: hsl(14, 45%, 36%);
+  --secondary-color: hsl(332, 51%, 32%);
+  --secondary-card-background-color: hsl(330, 100%, 98%);
+}
+
+/* Main CSS Styling */
+
+* {
+  font-size: 16px;
+  font-family: "Outfit", sans-serif;
+  color: var(--normal-text-color);
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  background: var(--background-card-color);
+  padding: 2.5rem;
+  max-width: 736px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5rem;
+}
+
+.img-container {
+  border-radius: 0.75rem;
+  max-width: 656px;
+  min-width: 375px;
+  content: fill;
+}
+
+h1 {
+  font-family: "Young Serif";
+  font-size: 2.5rem;
+  color: var(--bold-text-color);
+}
+
+h2 {
+  color: var(--primary-color);
+  font-family: "Young Serif";
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+
+h3 {
+  color: var(--secondary-color);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.title h2 {
+  padding-bottom: 1.5rem;
+}
+
+.preparation {
+  background-color: var(--secondary-card-background-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  max-width: 656px;
+}
+
+.ul-custom-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0.5rem;
+}
+
+.ul-custom-list li {
+  position: relative;
+  padding-left: 2rem;
+  margin: 0;
+}
+
+.ul-custom-list li::before {
+  content: "•";
+  position: absolute;
+  font-size: 1.5rem;
+  left: 0;
+  color: var(--primary-color);
+}
+
+.ol-custom-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding-left: 0.5rem;
+  counter-reset: list-counter;
+  max-width: 656px;
+}
+
+.ol-custom-list li {
+  display: flex;
+  position: relative;
+  padding-left: 1rem;
+  margin: 0;
+  counter-increment: list-counter;
+}
+
+.ol-custom-list li::before {
+  content: counter(list-counter) ". ";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.ol-custom-list li {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 2rem;
+  margin: 1rem 0 0.5rem;
+  counter-increment: list-counter;
+  position: relative;
+}
+
+.ol-custom-list li p {
+  margin-top: 0;
+}
+
+.custom-list li::marker {
+  color: var(--primary-color);
+}
+
+.title,
+.preparation,
+.ingredients,
+.instructions,
+.nutrition {
+  margin-bottom: 2rem;
+}
+
+.preparation h3,
+.ingredients h2,
+.instructions h2,
+.nutrition h2 {
+  padding-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--shadow-color);
+  margin-bottom: 2rem;
+}
+
+.nutrition-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nutrition-table td {
+  padding: 8px 12px 8px 32px;
+  text-align: left;
+}
+
+.nutrition-table tr {
+  border-bottom: 1px solid var(--shadow-color);
+}
+
+.nutrition-table tr:last-child {
+  border-bottom: none;
+}
+
+.row-title {
+  padding-left: 2rem;
+}
+
+.portion {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.attribution {
+  font-size: 15px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  font-size: 15px;
+}
+
+/* Start Responsive code */
+
+@media screen and (max-width: 375px) {
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: none;
+  }
+
+  .img-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .content {
+    padding: 0 2rem 2rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* End of Responsive code */
+
+
+/* End of Main CSS Styling */
