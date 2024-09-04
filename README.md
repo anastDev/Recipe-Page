@@ -33,7 +33,7 @@
 - Flexbox
 - Custom Lists
 - CSS Grid
-- Accessibility Considerations:
+- Accessibility Considerations
 
 ### What I learned
 
