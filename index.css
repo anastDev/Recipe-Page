@@ -138,10 +138,16 @@ body {
 }
 
 .img-container {
-  border-radius: 0.75rem;
   max-width: 656px;
   min-width: 375px;
-  content: fill;
+  overflow: hidden;
+}
+
+.img-container img {
+  border-radius: 0.75rem;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 h1 {
@@ -335,6 +341,5 @@ h3 {
 }
 
 /* End of Responsive code */
-
 
 /* End of Main CSS Styling */
